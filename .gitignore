@@ -1,0 +1,28 @@
+# Runtime state — never mirror
+projects/
+sessions/
+todos/
+history.jsonl
+shell-snapshots/
+session-env/
+debug/
+ide/
+worktrees/
+backups/
+cache/
+statsig/
+
+# Auth & cache state
+mcp-needs-auth-cache.json
+*.local.json
+.env
+.env.*
+
+# Plugin install state (rebuilt from marketplace)
+plugins/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
