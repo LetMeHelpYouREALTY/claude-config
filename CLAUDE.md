@@ -1,6 +1,6 @@
 # Dr. Jan Duffy — Cowork Desktop Instructions
 
-> **v3.1.6 — Updated May 6, 2026.** Lean core + skill routing. Detailed reference material (FUB tag library, GBP roster, BHHS app list, GLVAR apps, full FUB automation specs) lives in skills and Notion, loaded on demand. See `INSTALLED SKILLS INDEX` below. v3.1 adds NAR Compliance, Model Cost Routing, Backup & DR sections. v3.1.2 adds IDC Global / Burrow to Tech Stack + SOI Tier 2. v3.1.6 adds Sonnet 4.8 preview, finance agent templates, MS365 add-ins GA, ant CLI, FUB Smart Messages, Homebot Usherpa + LTS auto-email, Google next-update timing.
+> **v3.1.4 — Updated May 8, 2026.** Lean core + skill routing. Detailed reference material (FUB tag library, GBP roster, BHHS app list, GLVAR apps, full FUB automation specs) lives in skills and Notion, loaded on demand. See `INSTALLED SKILLS INDEX` below. v3.1 adds NAR Compliance, Model Cost Routing, Backup & DR sections. v3.1.2 adds IDC Global / Burrow to Tech Stack + SOI Tier 2. v3.1.4 adds Parallel Search MCP (connected + verified May 8, 2026).
 
 ---
 
@@ -36,7 +36,7 @@ Dr. Jan Duffy — Nevada real estate agent (S.0197614.LLC), BHHS Nevada Properti
 
 ⚠️ Every website has its own number. Never swap. If a site needs a new CallAction tracking number, ALWAYS ask Dr. Jan first.
 
-**Site phone registry — OPEN FIX (April 18, 2026):** drjanduffy.com (WRONG: 702-500-1064) · duffyrealtyoflasvegas.com (WRONG: 702-500-1942) · drjanetduffy.com (WRONG: 702-766-7668). Use 702-222-1964 as fallback until CallAction tracking numbers assigned. GitHub repos: DrJanDuffy/drjanduffy.com, DrJanDuffy/duffyrealtyoflasvegas.com. Open Brain tag: `site-phone-fix`.
+**Site phone registry — CallAction/GBP NAP architecture (confirmed May 8, 2026):** Each site has a dedicated CallAction tracking number that also serves as the GBP NAP phone for that location. These numbers are INTENTIONAL and must NEVER be replaced with 702-222-1964. drjanduffy.com = 702-500-1064 · duffyrealtyoflasvegas.com = 702-500-1942 · drjanetduffy.com = 702-766-7668. Changing any of these would break local SEO / GBP NAP consistency. ⚠️ Repo for drjanduffy.com is under `LetMeHelpYouREALTY` org (not DrJanDuffy). The two PowerShell scripts that previously overrode these numbers (`revert-phone-numbers.ps1`, `update-phone-and-stats.ps1`) have been permanently deleted from the repo (commit: May 8, 2026).
 
 ---
 
@@ -191,24 +191,20 @@ Full weekly plan → `soi-referral-engine` skill.
 
 ---
 
-## TECH STACK (MAY 2026 CURRENT STATE)
+## TECH STACK (APRIL 2026 CURRENT STATE)
 
 ### AI Models & Platform
-- **Claude Opus 4.7 (released Apr 16, 2026)** — `claude-opus-4-7`. Adaptive thinking, task budgets, high-res vision (3.75MP), 1M context window (no long-context premium), 128K output tokens, 13% lift on complex coding, new `xhigh` effort. Thinking omitted by default — opt in. $5/M input · $25/M output. **Use for all complex agentic, coding, and investor analysis.**
-- **Claude Sonnet 4.8 (coming May 2026)** — Confirmed via leaked Claude Code source code. Expected: improved vision (matching Opus 4.7 98.5% visual acuity), better coding benchmarks, higher-resolution image support, improved instruction following. Monitor `platform.claude.com` for release. Will become new default for client emails + GBP posts when available.
+- **Claude Opus 4.7 (released Apr 16, 2026)** — `claude-opus-4-7`. Adaptive thinking, task budgets, high-res vision (3.75MP), 13% lift on complex coding, new `xhigh` effort. Thinking omitted by default — opt in. $5/M input · $25/M output. **Use for all complex agentic, coding, and investor analysis.**
 - **Claude Design (launched Apr 17, 2026)** — Anthropic Labs, Opus 4.7 powered. Research preview for Pro/Max/Team/Enterprise. Monitor for listing marketing use cases.
 - **Claude Mythos (Apr 8, 2026)** — Project Glasswing consortium only (Amazon/Apple/Google/Cisco/CrowdStrike/JPM/MS/Nvidia). Autonomous cybersecurity. NOT publicly available.
 - **Anthropic Advisor Tool (beta, Apr 2026)** — `anthropic-beta: advisor-tool-2026-03-01`. Sonnet 4.6 + Opus 4.7 pairing. 74.8% SWE-bench (+2.7pts vs Sonnet) at 11.9% lower cost than pure Opus. Best for long-horizon agentic work.
-- **Anthropic Finance Agent Templates (May 2026)** — 10 ready-to-run templates for financial services (pitchbooks, KYC screening, month-end close). Ship as plugins in Claude Cowork + Claude Code. Relevant for KLB Consultants investor/family office workflows.
-- **Claude add-ins for Microsoft 365 (GA, May 2026)** — Excel, PowerPoint, Word, and Outlook integrations now generally available. Useful for BHHS reporting, listing docs, and investor presentations in Office ecosystem.
-- **ant CLI (May 2026)** — New Anthropic command-line client for Claude API. Faster API interaction, native Claude Code integration, YAML versioning of API resources. Available at `platform.claude.com/docs`.
 
 ### CRM & Leads
-- **Follow Up Boss (system of record)** — FUB AI (Mar 2026): call summaries, lead history, one-click task suggestions, AI reply drafts, auto high-intent tags, **Smart Messages (verified doubles response rates — use for all speed-to-lead texts)**, Smart Summaries (instant client snapshot). Zillow Pro integration. Speed-to-lead <60 sec.
+- **Follow Up Boss (system of record)** — FUB AI (Mar 2026): call summaries, lead history, one-click task suggestions, AI reply drafts, auto high-intent tags. Zillow Pro integration. Speed-to-lead <60 sec.
 - **Cloze (sphere CRM)** — AI-powered relationship CRM. Connected to FUB via API key in Cloze Settings → Integrations. Syncs bidirectionally. NOT a FUB replacement. **Verified live April 29, 2026:** FUB tasks visible in Cloze agenda; home reports flowing through.
 - **RealScout** — Winter 2026: AI Search (natural language → MLS alerts), Scout Score 0–100 (nightly), Contact Enrichment. **Verified live April 29:** 843 FUB contacts tagged RealScout HVA Viewed; new contacts created today with source=RealScout.
-- **Homebot.ai** — LTS Score (89% accuracy, 9-month). Native FUB integration (Q4 2025) creates contacts with source=HOMEBOT. **New Q4 2025 / 2026 features:** Usherpa integration (Homebot behavioral data direct to CRM, trigger campaigns on homeowner signals); **LTS ≥70 auto-email** (Homebot sends automated Likely to Sell alert email when client hits score 70+); Expanded Buyer Management (add buyers with home/rental address or pre-qual, access Home Search). ⚠️ Native does NOT push home address or LTS score back to FUB — this gap is filled by Zapier `#GetAddresssfromHomeBot` Zap (verified April 29: Lisa Jenkins April 27 = no address; Krista Okelley April 27 with the Zap = full data). Homebot Network (2026) = no-cost referral ecosystem. **Trigger Leads ban (March 5, 2026, Homebuyers Privacy Protection Act)** — Homebot behavioral intel fills the prospecting gap.
-- **BoldTrail CRM (enrichment + drip layer, NOT primary contact source)** — Note: kvCORE rebranded to BoldTrail CRM in 2026. **BoldTrail BackOffice** (transaction records, commissions, compliance, financial reporting). BHHS Connect (app.bhhsconnect.com) now runs on BoldTrail platform. Dr. Jan accesses with **Team Admin role** via BHHS bundle. kvCORE/BoldTrail's role is to **enhance contact data** on existing FUB contacts (skip-trace, social, behavioral signals), put them on **appropriate drip campaigns**, and **push enriched data back to FUB**. FUB remains system of record. NOT a primary lead-acquisition channel — front door is RealScout, Homebot, Curb Hero, Webhook, Squarespace. April 29, 2026 audit confirmed only 13 lifetime KVCore-source contacts (last March 25) — reflects design, not death. **Drip targeting:** FUB contacts with `RealScout` tag + Inactive >30 days + business-logic exclusions (DNC, Past Client, Spoke with customer, Bounced, Unsubscribed, Trash, RE Agent, ARCHIVE). Build as FUB Smart List "kvCORE Drip Eligible — Inactive RealScout 30d." **Required Zaps:** FUB→kvCORE (enrichment + drip push) and kvCORE→FUB (return enriched data + drip status). Both KEEP. **NEW 2026 features in Marketing Autopilot:** Smart Assistant (ChatGPT-powered, generates text/email/scripts inside the CRM), Behavioral Automation (auto-pauses campaigns when actively communicating), Hashtag Management (trigger mechanism for Smart Campaigns). **Zapier integration:** kvCORE Zapier has TWO triggers (`New Lead`, `Campaign Action`) + TWO actions (`Create Contact`, `Update Contact`). The `Campaign Action` trigger captures engagement events — no custom webhook needed for Zap 1.
+- **Homebot.ai** — LTS Score (89% accuracy, 9-month). Native FUB integration (Q4 2025) creates contacts with source=HOMEBOT. **⚠️ Native does NOT push home address or LTS score back to FUB** — this gap is filled by Zapier `#GetAddresssfromHomeBot` Zap (verified April 29: Lisa Jenkins April 27 = no address; Krista Okelley April 27 with the Zap = full data). Homebot Network (2026) = no-cost referral ecosystem. **Trigger Leads ban (March 5, 2026, Homebuyers Privacy Protection Act)** — Homebot behavioral intel fills the prospecting gap.
+- **BoldTrail CRM (enrichment + drip layer, NOT primary contact source)** — Note: kvCORE rebranded to BoldTrail CRM in 2026. **BoldTrail BackOffice** (transaction records, commissions, compliance, financial reporting BHHS Connect (app.bhhsconnect.com) now runs on BoldTrail platform. Dr. Jan accesses with **Team Admin role** via BHHS bundle. kvCORE/BoldTrail's role is to **enhance contact data** on existing FUB contacts (skip-trace, social, behavioral signals), put them on **appropriate drip campaigns**, and **push enriched data back to FUB**. FUB remains system of record. NOT a primary lead-acquisition channel — front door is RealScout, Homebot, Curb Hero, Webhook, Squarespace. April 29, 2026 audit confirmed only 13 lifetime KVCore-source contacts (last March 25) — reflects design, not death. **Drip targeting:** FUB contacts with `RealScout` tag + Inactive >30 days + business-logic exclusions (DNC, Past Client, Spoke with customer, Bounced, Unsubscribed, Trash, RE Agent, ARCHIVE). Build as FUB Smart List "kvCORE Drip Eligible — Inactive RealScout 30d." **Required Zaps:** FUB→kvCORE (enrichment + drip push) and kvCORE→FUB (return enriched data + drip status). Both KEEP. **NEW 2026 features in Marketing Autopilot:** Smart Assistant (ChatGPT-powered, generates text/email/scripts inside the CRM), Behavioral Automation (auto-pauses campaigns when actively communicating), Hashtag Management (trigger mechanism for Smart Campaigns). **Zapier integration:** kvCORE Zapier has TWO triggers (`New Lead`, `Campaign Action`) + TWO actions (`Create Contact`, `Update Contact`). The `Campaign Action` trigger captures engagement events — no custom webhook needed for Zap 1.
 - **CallAction** — supporting (call tracking, contact intake from website forms).
 
 ### Property Search & Marketing
@@ -235,6 +231,9 @@ Full weekly plan → `soi-referral-engine` skill.
 - **BHHS Document Center** — Transaction documents only (DocuSign, SkySlope, XpressDocs 360 outputs). NOT a general file system. Manual access only (no MCP).
 - **Box** — REJECTED. Google Drive covers the use case. Don't authenticate.
 
+### Web Research (Real-Time)
+- **Parallel Search MCP** — ✅ Connected May 8, 2026. URL: `https://search.parallel.ai/mcp`. No API key required (anonymous, free tier). Tools: `web_search` (<5s, synchronous) + `web_fetch` (extract content from URLs). **This is now the primary search layer** — automates the search-first protocol for all market data, MLS trends, rates, builder inventory, competitor research, and SEO updates. Also available: Monitor API (scheduled alerts), Deep Research (async, 4–30 min), Enrichment, FindAll, Task — access via platform.parallel.ai. For higher rate limits, add Parallel API key from platform.parallel.ai. **Use for every market question** — no more memory-based Vegas stats.
+
 ### Data Utilities
 - **Substack Prospect Lookup (public API, no key):** `GET https://substack.com/profile/search/linkedin/{linkedin-handle}` — returns followerCount, roughNumFreeSubscribers, leaderboardStatus, bestsellerTier. Use via WebFetch before high-influence calls.
 
@@ -244,7 +243,7 @@ Full weekly plan → `soi-referral-engine` skill.
 - **ShowingTime→FUB feedback gap** ⚠️ Manual feedback capture is the workaround. Discovery: pre-2026-04-19 (not previously logged). Target close: **2026-05-19** (next review) — if unresolved, log as permanent manual workaround.
 - **Prospects (MLS CRM) vs FUB duplicate audit** ⚠️ No prior audit on record. Next audit target: **before 2026-05-19**. Scope: pull both contact lists, diff on email + phone, flag duplicates for FUB-primary resolution.
 - ~~**Burrow ↔ FUB sync verification**~~ ✅ CLOSED April 29, 2026. Confirmed one-way push FUB→Burrow. No return flow. Burrow consumes FUB contact list for newsletter/reports.
-- **FUB Pixel audit** ⚠️ ZERO fixes shipped — 3rd consecutive failed audit as of May 6, 2026. FUB Website Visit events past 7d = 0 across all P0 sites. Pixel ID: 1309239391. Next audit: 2026-05-09. Escalation: Linear DRJ-5/6/7.
+- **Untitled Zap "KvCore → App31697" (April 3, 2026)** ✅ RESOLVED April 29 PM. Zap ID 339362508. App31697 = Homebot. Structure: kvCORE (New Lead) → Homebot (Create Client). Decision: KILL — bypasses FUB system of record. Lead should land in FUB first → FUB→Homebot via native tag (#Seller_Homebot or #Buyer_Homebot), not direct kvCORE→Homebot. Added to kill list (13 total).
 
 ---
 
@@ -296,8 +295,6 @@ Full tag library, cleanup tags, Auto Nurture outcomes, integration setup, Smart 
 
 RS Showing Request (id:64/63) · RealScout Property Saved (id:40/41) · RS Market Activity Viewed (id:38/39) · RealScout Property Viewed 3+ (id:36/37) · RealScout HVA Viewed (id:34/35) · RS Message Sent (id:67/66) · RS HVA Valuation Message (id:69/68) · RS Open House Info Viewed (id:71/70) · RS Auto-Archive (id:72) · Homebot Highly Likely to Sell (id:73) · Homebot Likely to Sell Nurture (id:74).
 
-⚠️ **Silent failure alert:** 0 hand-raising automations have fired in 7+ weeks as of May 2026. Confirm FUB event subscriptions and pixel delivery before assuming leads are cold. Must be Agenda Item 1 at next live session.
-
 ✅ Legacy cleanup complete: Likely.AI, Ylopo+LCA Drip, KCM Playbooks all disabled.
 
 Full templates + IDs + merge variables → Notion: https://www.notion.so/312b8be96dd981269b05c18f07cf5649
@@ -316,7 +313,7 @@ Full templates + IDs + merge variables → Notion: https://www.notion.so/312b8be
 
 ## SEO & CONTENT — 2026 STANDARDS
 
-- **March 2026 Google Core Update (ran March 27–April 8)** — targets scaled AI content abuse (55% of sites hit in 2 weeks). 73% of top-ranking content shows firsthand experience. 44% of LLM citations come from first 30% of article — intros critical. Focus: content originality, firsthand experience signals, YMYL authority. **Next core update: expected June–July 2026** — prepare E-E-A-T refresh and originality audit before then.
+- **March 2026 Google Core Update** — targets scaled AI content abuse (55% of sites hit in 2 weeks). 73% of top-ranking content shows firsthand experience. 44% of LLM citations come from first 30% of article — intros critical.
 - **E-E-A-T + Hyperlocal > Zillow.** Neighborhood guides win "near me" searches. Mobile-first (62% traffic).
 - **Video (403% more inquiries):** 3x/week TikTok/Reels, vertical, 15–30 sec, 2-sec hook, captions required.
 - **GBP:** Weekly posts = 35% more views. 100+ photos/location (520% more calls, 1,065% more clicks). Respond to all reviews <24 hrs. 50+ reviews per location goal. 46% of Google searches have local intent. Primary category: Real Estate Agent.
@@ -366,7 +363,7 @@ NAP everywhere: Dr. Jan Duffy · BHHS Nevada Properties · 702-222-1964.
 
 | Task Type | Model | Rationale |
 |---|---|---|
-| Client emails · GBP posts · FUB templates · quick lookups | **Sonnet 4.6** (upgrade to 4.8 when released) | Fast + cheap. 27% of Opus cost. |
+| Client emails · GBP posts · FUB templates · quick lookups | **Sonnet 4.6** | Fast + cheap. 27% of Opus cost. |
 | Listing strategy · investor waterfall · long agentic builds · coding | **Opus 4.7 (`xhigh`)** | Complex reasoning, adaptive thinking. |
 | Long-horizon agentic (multi-file audits, SEO migration, CMA from scratch) | **Advisor Tool** (Sonnet + Opus pairing) | 74.8% SWE-bench, **-11.9% cost vs pure Opus**. |
 | Photo scoring · vision tasks | **Opus 4.7** | 3.75MP high-res vision. |
@@ -377,8 +374,12 @@ Default = Sonnet. Escalate to Opus only when Sonnet draft fails QA.
 
 ## SEARCH-FIRST PROTOCOL
 
+**Parallel Search MCP is now live** — `web_search` runs automatically for all market questions. No manual lookup needed.
+
 Always search before answering:
 - Vegas MLS data, rates, pricing, trends · Google core updates · AI Overviews/zero-click · SEO/digital marketing · Builder inventory · Competitor analysis · Events after May 2025 · Financial/economic conditions · Tech/platform updates
+
+**Search tool hierarchy:** Parallel Search MCP (`web_search`) → `web_fetch` for specific URLs → WebSearch fallback if Parallel unavailable. Always cite source + date on any data pulled.
 
 ---
 
@@ -387,6 +388,7 @@ Always search before answering:
 Every multi-step task fires automatically:
 
 1. **Plan** — 2–3 sentences, no bullet walls, no tool calls yet
+1b. **Spec First** — any build estimated >30 min (FUB automations, site changes, multi-file work): write a 1-page spec.md first (goal, constraints, success criteria, what NOT to touch) and get Dr. Jan sign-off before executing.
 2. **Act** — one job per action
 3. **Self-Challenge** — "What assumption am I making that could be wrong?"
 4. **Failure Mode Scan** — cross-check against FAILURE MODES section
@@ -400,6 +402,25 @@ Deep-dive high-stakes work (listings, FUB builds, SEO, investor analysis) → in
 
 ---
 
+## KARPATHY CHECKS — BEFORE ANY BUILD OR MULTI-STEP TASK
+
+*Source: Karpathy agent failure-mode catalog (late 2025) + Sequoia talk (Apr 29, 2026). Added 2026-06-11.*
+
+1. **SURFACE ASSUMPTIONS** — state what I am assuming before acting; if a wrong assumption would cascade, ask first.
+2. **PRESENT TRADEOFFS** — if there are 2+ reasonable approaches, show them (A/B/C format) before picking.
+3. **SIMPLEST THING** — smallest implementation that meets the goal. No speculative features.
+4. **SURGICAL CHANGES** — touch only what the task requires. Never refactor adjacent content uninvited.
+5. **DEFINE DONE** — state success criteria up front; verify against them before delivering.
+6. **PUSH BACK** — if the plan is unsound, say so before executing, not after.
+
+---
+## COUNCIL REVIEW — HIGH-STAKES DELIVERABLES
+
+*Karpathy llm-council pattern (Nov 2025). Added 2026-06-11.*
+
+Before delivering any listing strategy, CMA, investor analysis, or document that will be sent or published: run a second-pass critique with FRESH context (subagent or second model) checking (1) every number against its source + date, (2) fair-housing proxies, (3) unstated assumptions and weak logic. Fix findings, then deliver. Note "Council-reviewed" in the deliverable footer. Pairs with `plan-and-review` skill for deep-dive work.
+
+---
 ## 2026 CLAUDE / COWORK BEST PRACTICES
 
 - **Skills > Prompts** — Reusable skills in `.claude/skills/` are the 2026 standard. Prefer `dr-jan-skills-v2:*` over legacy unprefixed versions.
@@ -448,7 +469,7 @@ Deep-dive high-stakes work (listings, FUB builds, SEO, investor analysis) → in
 *Updated 2026-04-29. Confirm account before ANY write on dual-account MCPs (Gmail/FUB/Homebot/CallAction/Cloudflare).*
 
 ### ✅ Full Access
-Gmail Full (2 accounts: `mcp__19c00846`, `mcp__ed5ee078`) · Gmail Read-Only (`mcp__5e399eca`) · Google Calendar · Google Drive · Notion · Airtable · Vercel · Canva (editing transactions) · Gamma · Calendly · Supabase · Cloudflare Workers/D1/KV/R2 (2 accounts) · Thoughts/Open Brain · Scheduled Tasks · Claude in Chrome · Control Chrome · Follow Up Boss (2 accounts) · Homebot (2 accounts) · CallAction (2 accounts)
+Gmail Full (2 accounts: `mcp__19c00846`, `mcp__ed5ee078`) · Gmail Read-Only (`mcp__5e399eca`) · Google Calendar · Google Drive · Notion · Airtable · Vercel · Canva (editing transactions) · Gamma · Calendly · Supabase · Cloudflare Workers/D1/KV/R2 (2 accounts) · Thoughts/Open Brain · Scheduled Tasks · Claude in Chrome · Control Chrome · Follow Up Boss (2 accounts) · Homebot (2 accounts) · CallAction (2 accounts) · **Parallel Search MCP** (`web_search` + `web_fetch`, connected May 8, 2026 — anonymous/free tier, no key required)
 
 ### ⚠️ Limited
 kvCORE (create/update only, no search via MCP — sufficient for enrichment-layer role) · RealScout (create client only) · Figma (design context only, NOT Canva)
@@ -585,4 +606,4 @@ Sending Gmail · modifying existing FUB contacts · publishing to web/social · 
 
 ---
 
-*CLAUDE.md v3.1.6 | Updated: 2026-05-06 | Changes from v3.1.3: (1) Opus 4.7 — added 1M context window + 128K output tokens; (2) Claude Sonnet 4.8 — added as coming May 2026 preview; (3) Finance agent templates — 10 Anthropic templates for financial services in Cowork/Code; (4) Microsoft 365 add-ins GA — Excel, PowerPoint, Word, Outlook now GA; (5) ant CLI — added to AI Models section; (6) FUB Smart Messages — verified doubles response rates, added to FUB section; (7) Homebot — Usherpa integration + LTS ≥70 auto-email added; (8) Google Core Update — added April 8 completion date + next update June–July 2026; (9) FUB Pixel silent-failure alert — added to FUB Automation section | Next review: 2026-05-19 | Backup on disk: CLAUDE.md.backup-v3.1.3-2026-05-03*
+*CLAUDE.md v3.1.6 | Updated: 2026-06-11 (Council Review section added — Karpathy llm-council pattern, option E. Earlier same day v3.1.5: Karpathy Checks section added before 2026 Best Practices; Spec-First step 1b added to Planning Protocol — options A+D per KarpathySystem_Implementation_2026-06-11_v1.0.md. Previous v3.1.4 2026-05-08: (Parallel Search MCP connected + verified — web_search + web_fetch live, anonymous free tier, URL: https://search.parallel.ai/mcp; added to Tech Stack → Web Research section; added to MCP Capabilities ✅ Full Access; Search-First Protocol updated with tool hierarchy; v3.1.3: IDC Global / Burrow added to Tech Stack + SOI Tier 2 + Failure Modes + Constraint E + Eval Criteria; Zapier audit findings integrated; kvCORE clarified as enrichment + drip layer; Homebot Zap revision; Otter.ai formalized; Gong + Granola + Box ALL rejected as redundant) | Next review: 2026-05-19 | Backup on disk: CLAUDE.md.backup-v3.1.1-2026-04-29*
