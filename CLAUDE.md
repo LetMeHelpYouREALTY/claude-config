@@ -1,6 +1,6 @@
 # Dr. Jan Duffy — Cowork Desktop Instructions
 
-> **v3.1.4 — Updated May 8, 2026.** Lean core + skill routing. Detailed reference material (FUB tag library, GBP roster, BHHS app list, GLVAR apps, full FUB automation specs) lives in skills and Notion, loaded on demand. See `INSTALLED SKILLS INDEX` below. v3.1 adds NAR Compliance, Model Cost Routing, Backup & DR sections. v3.1.2 adds IDC Global / Burrow to Tech Stack + SOI Tier 2. v3.1.4 adds Parallel Search MCP (connected + verified May 8, 2026).
+> **v3.2.0 — Updated July 20, 2026.** Lean core + skill routing. Detailed reference material (FUB tag library, GBP roster, BHHS app list, GLVAR apps, full FUB automation specs) lives in skills and Notion, loaded on demand. See `INSTALLED SKILLS INDEX` below. Governed by **Global Operating Instructions v2.2 (2026-07-03)** — where this file conflicts with v2.2, v2.2 wins. v3.2.0 resolves the 2026-07-18 Harness Conflict Audit findings: model routing updated to Sonnet 5 / Opus 4.8, GBP count corrected to 16, skill-canonicality rule unified, review date reset. v3.1.4 added Parallel Search MCP (May 8, 2026).
 
 ---
 
@@ -194,10 +194,10 @@ Full weekly plan → `soi-referral-engine` skill.
 ## TECH STACK (APRIL 2026 CURRENT STATE)
 
 ### AI Models & Platform
-- **Claude Opus 4.7 (released Apr 16, 2026)** — `claude-opus-4-7`. Adaptive thinking, task budgets, high-res vision (3.75MP), 13% lift on complex coding, new `xhigh` effort. Thinking omitted by default — opt in. $5/M input · $25/M output. **Use for all complex agentic, coding, and investor analysis.**
+- **Claude Opus 4.8** — `claude-opus-4-8`. Current escalation tier per Global Operating Instructions v2.2. **Use for all complex agentic, coding, and investor analysis.** (Opus 4.7 superseded; current lineup as of 2026-07-18 session context: Fable 5, Opus 4.8, Sonnet 5, Haiku 4.5. Re-verify pricing via Parallel Search before quoting — corrected 2026-07-20 from session-provided product info, Parallel was rate-limited during the audit run.)
 - **Claude Design (launched Apr 17, 2026)** — Anthropic Labs, Opus 4.7 powered. Research preview for Pro/Max/Team/Enterprise. Monitor for listing marketing use cases.
 - **Claude Mythos (Apr 8, 2026)** — Project Glasswing consortium only (Amazon/Apple/Google/Cisco/CrowdStrike/JPM/MS/Nvidia). Autonomous cybersecurity. NOT publicly available.
-- **Anthropic Advisor Tool (beta, Apr 2026)** — `anthropic-beta: advisor-tool-2026-03-01`. Sonnet 4.6 + Opus 4.7 pairing. 74.8% SWE-bench (+2.7pts vs Sonnet) at 11.9% lower cost than pure Opus. Best for long-horizon agentic work.
+- **Anthropic Advisor Tool (beta)** — `anthropic-beta: advisor-tool-2026-03-01`. Best for long-horizon agentic work. Pairing rules live in Global Operating Instructions v2.2 (re-verified 2026-07-12): executor Sonnet 5 may use advisor Opus 4.6/4.7/4.8, Fable 5, or Mythos 5; keep advisor ≤ Opus 4.8 for client PII (Fable/Mythos = 30-day retention, no ZDR).
 
 ### CRM & Leads
 - **Follow Up Boss (system of record)** — FUB AI (Mar 2026): call summaries, lead history, one-click task suggestions, AI reply drafts, auto high-intent tags. Zillow Pro integration. Speed-to-lead <60 sec.
@@ -215,7 +215,7 @@ Full weekly plan → `soi-referral-engine` skill.
 
 ### Meeting Capture & Voice
 - **Otter.ai** — Primary meeting transcription. Auto-flows to Notion Database via Zapier (verified live, last run 20 hours ago) + uploads to Claude as files for analysis. Covers listing appointments, buyer consults, team meetings, one-on-ones. Granola is redundant — DO NOT add. (Verified April 29, 2026.)
-- **Claude (Opus 4.7)** — Voice ANALYSIS + content drafting. Workflow: Otter captures call → transcript to Claude → Claude extracts voice patterns / signature phrases / cadence → proposes CLAUDE.md voice refinements. Cost: $5/M input · $25/M output. Run quarterly or after major messaging shifts.
+- **Claude (Opus 4.8)** — Voice ANALYSIS + content drafting. Workflow: Otter captures call → transcript to Claude → Claude extracts voice patterns / signature phrases / cadence → proposes CLAUDE.md voice refinements. Run quarterly or after major messaging shifts.
 - **Jasper.ai** — Brand voice ENFORCEMENT + scaled content production. Pre-trained on Dr. Jan's voice via Jasper Brand Voice feature. Best for: high-volume social posts, ad copy variations, email templates, blog drafts at scale. Use Jasper when you need 10+ pieces of content fast in consistent voice. Use Claude when you need deep analysis, strategic content, or 1-off high-stakes pieces.
 - **Gong, Granola, brand-voice:conversation-analysis** — REJECTED as redundant. Otter (transcription) + Claude (analysis) + Jasper (production) cover the entire content/voice stack. Don't authenticate.
 
@@ -328,7 +328,9 @@ Content production, GBP playbooks, video scripts → `content-brand-authority` s
 
 ---
 
-## GBP LOCATIONS — 15 TOTAL
+## GBP LOCATIONS — 16 TOTAL
+
+*Count corrected 2026-07-20 (header previously said 15; the three sets below enumerate 5+6+5 = 16). Open Brain logged a separate external-drift finding on 2026-07-15 (live GBP export showed 20) — reconcile the roster below against a fresh GBP export at next review.*
 
 NAP everywhere: Dr. Jan Duffy · BHHS Nevada Properties · 702-222-1964.
 
@@ -363,10 +365,10 @@ NAP everywhere: Dr. Jan Duffy · BHHS Nevada Properties · 702-222-1964.
 
 | Task Type | Model | Rationale |
 |---|---|---|
-| Client emails · GBP posts · FUB templates · quick lookups | **Sonnet 4.6** | Fast + cheap. 27% of Opus cost. |
-| Listing strategy · investor waterfall · long agentic builds · coding | **Opus 4.7 (`xhigh`)** | Complex reasoning, adaptive thinking. |
-| Long-horizon agentic (multi-file audits, SEO migration, CMA from scratch) | **Advisor Tool** (Sonnet + Opus pairing) | 74.8% SWE-bench, **-11.9% cost vs pure Opus**. |
-| Photo scoring · vision tasks | **Opus 4.7** | 3.75MP high-res vision. |
+| Client emails · GBP posts · FUB templates · quick lookups | **Sonnet 5** (`claude-sonnet-5`) | Fast + cheap default per v2.2. |
+| Listing strategy · investor waterfall · long agentic builds · coding | **Opus 4.8** (`claude-opus-4-8`) | Complex reasoning. Escalate the model, don't max the effort slider. |
+| Long-horizon agentic (multi-file audits, SEO migration, CMA from scratch) | **Advisor Tool** (Sonnet + Opus pairing) | See pairing rules in AI Models section / v2.2. |
+| Photo scoring · vision tasks | **Opus 4.8** | Vision work per v2.2. |
 
 Default = Sonnet. Escalate to Opus only when Sonnet draft fails QA.
 
@@ -388,7 +390,6 @@ Always search before answering:
 Every multi-step task fires automatically:
 
 1. **Plan** — 2–3 sentences, no bullet walls, no tool calls yet
-1b. **Spec First** — any build estimated >30 min (FUB automations, site changes, multi-file work): write a 1-page spec.md first (goal, constraints, success criteria, what NOT to touch) and get Dr. Jan sign-off before executing.
 2. **Act** — one job per action
 3. **Self-Challenge** — "What assumption am I making that could be wrong?"
 4. **Failure Mode Scan** — cross-check against FAILURE MODES section
@@ -402,34 +403,15 @@ Deep-dive high-stakes work (listings, FUB builds, SEO, investor analysis) → in
 
 ---
 
-## KARPATHY CHECKS — BEFORE ANY BUILD OR MULTI-STEP TASK
-
-*Source: Karpathy agent failure-mode catalog (late 2025) + Sequoia talk (Apr 29, 2026). Added 2026-06-11.*
-
-1. **SURFACE ASSUMPTIONS** — state what I am assuming before acting; if a wrong assumption would cascade, ask first.
-2. **PRESENT TRADEOFFS** — if there are 2+ reasonable approaches, show them (A/B/C format) before picking.
-3. **SIMPLEST THING** — smallest implementation that meets the goal. No speculative features.
-4. **SURGICAL CHANGES** — touch only what the task requires. Never refactor adjacent content uninvited.
-5. **DEFINE DONE** — state success criteria up front; verify against them before delivering.
-6. **PUSH BACK** — if the plan is unsound, say so before executing, not after.
-
----
-## COUNCIL REVIEW — HIGH-STAKES DELIVERABLES
-
-*Karpathy llm-council pattern (Nov 2025). Added 2026-06-11.*
-
-Before delivering any listing strategy, CMA, investor analysis, or document that will be sent or published: run a second-pass critique with FRESH context (subagent or second model) checking (1) every number against its source + date, (2) fair-housing proxies, (3) unstated assumptions and weak logic. Fix findings, then deliver. Note "Council-reviewed" in the deliverable footer. Pairs with `plan-and-review` skill for deep-dive work.
-
----
 ## 2026 CLAUDE / COWORK BEST PRACTICES
 
-- **Skills > Prompts** — Reusable skills in `.claude/skills/` are the 2026 standard. Prefer `dr-jan-skills-v2:*` over legacy unprefixed versions.
+- **Skills > Prompts** — Reusable skills are the 2026 standard. **Canonicality rule (unified 2026-07-20):** unprefixed `.claude/skills/` versions are canonical for CONTENT (they hold the newest material); `dr-jan-skills-v2:*` prefixed names are ROUTING ALIASES only. When content differs, unprefixed wins — reconcile the plugin copy on the next skill-creator run. This is the single rule; the Installed Skills Index below states the same.
 - **Lean CLAUDE.md** — Core identity + routing only. Reference material → skills or Notion retrieval. (This v3.0 is that restructure.)
 - **Skill install** — Cowork plugin system (.plugin file). Never drag files into `.claude/skills/` directly (triggers Cursor).
 - **CRM Safety — "UNKNOWN not inference"** — Never guess contact data. No confirmed source = tag UNKNOWN for manual review.
 - **Human Gate Required** — Agentic automation without human confirmation = CRM data fiction. Confirm before modifying live contacts/deals.
 - **One Job Per Action** — Each browser/MCP action = one specific task with approved values.
-- **Opus 4.7 for everything complex** — Financial modeling, waterfall distributions, tiered promotes, multi-step research, agentic workflows.
+- **Opus 4.8 for everything complex** — Financial modeling, waterfall distributions, tiered promotes, multi-step research, agentic workflows.
 - **Source-Quote Rule** — Citation required for every data extraction. No citation = Low confidence tag.
 - **Verify Before Decommission** — Before killing any integration Zap, pull live API evidence proving the native covers the data path. Native creation ≠ native enrichment (Homebot example, Apr 29 audit).
 
@@ -439,11 +421,13 @@ Before delivering any listing strategy, CMA, investor analysis, or document that
 
 *Reference by name — Claude auto-loads the skill's full instructions.*
 
-⚠️ **Canonical versions (April 2026):** Where a skill exists both as unprefixed (`.claude/skills/`) and plugin-prefixed (`dr-jan-skills-v2:*`), **unprefixed is canonical** — it holds the newest content (e.g., `dr-jan-duffy-realscout-fub` unprefixed = v2.1 Apr 13 with FUB Automations 2.0 + Smart List Collections; plugin version = v2.0 Apr 6). Reconcile plugin on next skill-creator run.
+⚠️ **Canonical versions (unified 2026-07-20, same rule as Best Practices above):** Where a skill exists both as unprefixed (`.claude/skills/`) and plugin-prefixed (`dr-jan-skills-v2:*`), **unprefixed is canonical for content**; the `dr-jan-skills-v2:*` names in the table below are routing aliases (e.g., `dr-jan-duffy-realscout-fub` unprefixed = v2.1 Apr 13 with FUB Automations 2.0 + Smart List Collections; plugin version = v2.0 Apr 6). Reconcile plugin on next skill-creator run.
 
 | Category | Skill | Purpose |
 |---|---|---|
 | Core OS | `dr-jan-skills-v2:dr-jan-duffy-realscout-fub` | FUB automations, RealScout tags, Homebot flows, SOPs |
+| FUB Access | `followupace-fub-mcp` · `followupace-fub-boss:*` · `fub-guardrails:*` | ⚠️ Three-way overlap flagged 2026-07-18 audit — no canonical pick yet. Until decided: prefer the `followupace-fub-boss:*` bundle for MCP + guardrails in one place; do not enable all three in the same session. |
+| Loops | `loop-engineer` (v1.2) | Recurring/autonomous loop design. Sole survivor — `dr-jan-loop-engineer` deleted 2026-07-20 per its own retirement note. |
 | Command Ref | `dr-jan-skills-v2:dr-jan-commands` | 69-command guide + skill routing |
 | Client Decks | `dr-jan-skills-v2:gamma-client-materials` | All client-facing decks → Gamma MCP |
 | Listing | `dr-jan-skills-v2:sharran-listing-strategy` | Invitation Framework .docx |
@@ -606,4 +590,4 @@ Sending Gmail · modifying existing FUB contacts · publishing to web/social · 
 
 ---
 
-*CLAUDE.md v3.1.6 | Updated: 2026-06-11 (Council Review section added — Karpathy llm-council pattern, option E. Earlier same day v3.1.5: Karpathy Checks section added before 2026 Best Practices; Spec-First step 1b added to Planning Protocol — options A+D per KarpathySystem_Implementation_2026-06-11_v1.0.md. Previous v3.1.4 2026-05-08: (Parallel Search MCP connected + verified — web_search + web_fetch live, anonymous free tier, URL: https://search.parallel.ai/mcp; added to Tech Stack → Web Research section; added to MCP Capabilities ✅ Full Access; Search-First Protocol updated with tool hierarchy; v3.1.3: IDC Global / Burrow added to Tech Stack + SOI Tier 2 + Failure Modes + Constraint E + Eval Criteria; Zapier audit findings integrated; kvCORE clarified as enrichment + drip layer; Homebot Zap revision; Otter.ai formalized; Gong + Granola + Box ALL rejected as redundant) | Next review: 2026-05-19 | Backup on disk: CLAUDE.md.backup-v3.1.1-2026-04-29*
+*CLAUDE.md v3.2.0 | Updated: 2026-07-20 (Harness Conflict Audit fixes: model routing → Sonnet 5 / Opus 4.8 per Global Operating Instructions v2.2; skill-canonicality rule unified — unprefixed canonical for content, dr-jan-skills-v2:* as routing aliases; GBP header corrected 15 → 16; FUB three-way overlap + loop-engineer survivor added to Installed Skills Index; dr-jan-loop-engineer skill deleted from roster. Overdue items previously pinned to 2026-05-19 — Zapier decommission target, Next.js migration column, ShowingTime→FUB feedback gap, Prospects/FUB duplicate audit — all still need an actual re-review pass, not just this date bump. v3.1.4 2026-05-08: Parallel Search MCP connected) | Next review: 2026-07-25 (weekly harness scan) | Backups on disk: CLAUDE.md.backup-v3.1.4-2026-07-20, CLAUDE.md.backup-v3.1.1-2026-04-29*
