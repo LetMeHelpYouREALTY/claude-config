@@ -1,6 +1,6 @@
 # Dr. Jan Duffy — Cowork Desktop Instructions
 
-> **v3.2.0 — Updated July 20, 2026.** Lean core + skill routing. Detailed reference material (FUB tag library, GBP roster, BHHS app list, GLVAR apps, full FUB automation specs) lives in skills and Notion, loaded on demand. See `INSTALLED SKILLS INDEX` below. Governed by **Global Operating Instructions v2.2 (2026-07-03)** — where this file conflicts with v2.2, v2.2 wins. v3.2.0 resolves the 2026-07-18 Harness Conflict Audit findings: model routing updated to Sonnet 5 / Opus 4.8, GBP count corrected to 16, skill-canonicality rule unified, review date reset. v3.1.4 added Parallel Search MCP (May 8, 2026).
+> **v3.3.0 — Updated July 23, 2026.** Lean core + skill routing. Detailed reference material (FUB tag library, GBP roster, BHHS app list, GLVAR apps, full FUB automation specs) lives in skills and Notion, loaded on demand. See `INSTALLED SKILLS INDEX` below. Governed by **Global Operating Instructions v2.2 (2026-07-03)** — where this file conflicts with v2.2, v2.2 wins. **⚠️ OPEN CONFLICT, NOT RESOLVED (flagged 2026-07-23):** a separate message claims Global Operating Instructions were retired 2026-07-15 and merged into a "project CLAUDE.md v4.0" — but no such v4.0 document has been located (not in any connected Claude.ai Project, not in this git mirror, not found on disk). Until Dr. Jan confirms where that v4.0 doc lives, this file continues to treat GOI v2.2 as governing per the line above. Do not silently drop the v2.2 reference until that's confirmed. v3.3.0 also (1) resyncs this `claude-config` git mirror, which was found frozen at v3.1.6 (2026-06-11 content, last touched on disk 2026-07-09) — six weeks behind this live text — back to current; (2) adds Cloze MCP, connected and FUB-sync-verified 2026-07-23. v3.2.0 resolved the 2026-07-18 Harness Conflict Audit findings: model routing updated to Sonnet 5 / Opus 4.8 (confirmed current via live search 2026-07-23), GBP count corrected to 16, skill-canonicality rule unified, review date reset. v3.1.4 added Parallel Search MCP (May 8, 2026).
 
 ---
 
@@ -191,17 +191,18 @@ Full weekly plan → `soi-referral-engine` skill.
 
 ---
 
-## TECH STACK (APRIL 2026 CURRENT STATE)
+## TECH STACK (JULY 2026 CURRENT STATE)
 
 ### AI Models & Platform
-- **Claude Opus 4.8** — `claude-opus-4-8`. Current escalation tier per Global Operating Instructions v2.2. **Use for all complex agentic, coding, and investor analysis.** (Opus 4.7 superseded; current lineup as of 2026-07-18 session context: Fable 5, Opus 4.8, Sonnet 5, Haiku 4.5. Re-verify pricing via Parallel Search before quoting — corrected 2026-07-20 from session-provided product info, Parallel was rate-limited during the audit run.)
+- **Claude Opus 4.8** — `claude-opus-4-8`. Current escalation tier per Global Operating Instructions v2.2. **Use for all complex agentic, coding, and investor analysis.** Confirmed still current via live web search 2026-07-23 (Anthropic's own site + Microsoft Foundry catalog both list it as the flagship generally-available Opus model). (Opus 4.7 superseded; current lineup as of 2026-07-18 session context: Fable 5, Opus 4.8, Sonnet 5, Haiku 4.5. Re-verify pricing via Parallel Search before quoting — corrected 2026-07-20 from session-provided product info, Parallel was rate-limited during the audit run.)
+- **Claude Sonnet 5** — `claude-sonnet-5`. Default executor model per Model Cost Routing below. Confirmed current via live web search 2026-07-23 (Anthropic launched Sonnet 5 June 30, 2026 — "most agentic Sonnet model yet").
 - **Claude Design (launched Apr 17, 2026)** — Anthropic Labs, Opus 4.7 powered. Research preview for Pro/Max/Team/Enterprise. Monitor for listing marketing use cases.
 - **Claude Mythos (Apr 8, 2026)** — Project Glasswing consortium only (Amazon/Apple/Google/Cisco/CrowdStrike/JPM/MS/Nvidia). Autonomous cybersecurity. NOT publicly available.
 - **Anthropic Advisor Tool (beta)** — `anthropic-beta: advisor-tool-2026-03-01`. Best for long-horizon agentic work. Pairing rules live in Global Operating Instructions v2.2 (re-verified 2026-07-12): executor Sonnet 5 may use advisor Opus 4.6/4.7/4.8, Fable 5, or Mythos 5; keep advisor ≤ Opus 4.8 for client PII (Fable/Mythos = 30-day retention, no ZDR).
 
 ### CRM & Leads
 - **Follow Up Boss (system of record)** — FUB AI (Mar 2026): call summaries, lead history, one-click task suggestions, AI reply drafts, auto high-intent tags. Zillow Pro integration. Speed-to-lead <60 sec.
-- **Cloze (sphere CRM)** — AI-powered relationship CRM. Connected to FUB via API key in Cloze Settings → Integrations. Syncs bidirectionally. NOT a FUB replacement. **Verified live April 29, 2026:** FUB tasks visible in Cloze agenda; home reports flowing through.
+- **Cloze (sphere CRM)** — AI-powered relationship CRM. Connected to FUB via API key in Cloze Settings → Integrations. Syncs bidirectionally. NOT a FUB replacement. **Verified live April 29, 2026:** FUB tasks visible in Cloze agenda; home reports flowing through. **Cloze MCP connected and verified 2026-07-23:** 13 read-only tools auto-allowed (about_me, full_content, person/project count-find-tags-views, timeline); 9 write/delete tools require per-call confirmation per CONFIRM BEFORE LIVE WRITES. FUB-synced contacts, tags (`realscout`, phone-line tags, `imported-stage-lead`, etc.), and timelines confirmed visible from the Cloze side via spot check (contact: Annah-Lizah Meadors, syncKey `sTB71Bqnx0S3ak6369u8OqLYGDQvMh_VnuOEWo9Pnsc` — 12-item timeline including a FUB-linked to-do referencing FUB record 21450).
 - **RealScout** — Winter 2026: AI Search (natural language → MLS alerts), Scout Score 0–100 (nightly), Contact Enrichment. **Verified live April 29:** 843 FUB contacts tagged RealScout HVA Viewed; new contacts created today with source=RealScout.
 - **Homebot.ai** — LTS Score (89% accuracy, 9-month). Native FUB integration (Q4 2025) creates contacts with source=HOMEBOT. **⚠️ Native does NOT push home address or LTS score back to FUB** — this gap is filled by Zapier `#GetAddresssfromHomeBot` Zap (verified April 29: Lisa Jenkins April 27 = no address; Krista Okelley April 27 with the Zap = full data). Homebot Network (2026) = no-cost referral ecosystem. **Trigger Leads ban (March 5, 2026, Homebuyers Privacy Protection Act)** — Homebot behavioral intel fills the prospecting gap.
 - **BoldTrail CRM (enrichment + drip layer, NOT primary contact source)** — Note: kvCORE rebranded to BoldTrail CRM in 2026. **BoldTrail BackOffice** (transaction records, commissions, compliance, financial reporting BHHS Connect (app.bhhsconnect.com) now runs on BoldTrail platform. Dr. Jan accesses with **Team Admin role** via BHHS bundle. kvCORE/BoldTrail's role is to **enhance contact data** on existing FUB contacts (skip-trace, social, behavioral signals), put them on **appropriate drip campaigns**, and **push enriched data back to FUB**. FUB remains system of record. NOT a primary lead-acquisition channel — front door is RealScout, Homebot, Curb Hero, Webhook, Squarespace. April 29, 2026 audit confirmed only 13 lifetime KVCore-source contacts (last March 25) — reflects design, not death. **Drip targeting:** FUB contacts with `RealScout` tag + Inactive >30 days + business-logic exclusions (DNC, Past Client, Spoke with customer, Bounced, Unsubscribed, Trash, RE Agent, ARCHIVE). Build as FUB Smart List "kvCORE Drip Eligible — Inactive RealScout 30d." **Required Zaps:** FUB→kvCORE (enrichment + drip push) and kvCORE→FUB (return enriched data + drip status). Both KEEP. **NEW 2026 features in Marketing Autopilot:** Smart Assistant (ChatGPT-powered, generates text/email/scripts inside the CRM), Behavioral Automation (auto-pauses campaigns when actively communicating), Hashtag Management (trigger mechanism for Smart Campaigns). **Zapier integration:** kvCORE Zapier has TWO triggers (`New Lead`, `Campaign Action`) + TWO actions (`Create Contact`, `Update Contact`). The `Campaign Action` trigger captures engagement events — no custom webhook needed for Zap 1.
@@ -244,6 +245,7 @@ Full weekly plan → `soi-referral-engine` skill.
 - **Prospects (MLS CRM) vs FUB duplicate audit** ⚠️ No prior audit on record. Next audit target: **before 2026-05-19**. Scope: pull both contact lists, diff on email + phone, flag duplicates for FUB-primary resolution.
 - ~~**Burrow ↔ FUB sync verification**~~ ✅ CLOSED April 29, 2026. Confirmed one-way push FUB→Burrow. No return flow. Burrow consumes FUB contact list for newsletter/reports.
 - **Untitled Zap "KvCore → App31697" (April 3, 2026)** ✅ RESOLVED April 29 PM. Zap ID 339362508. App31697 = Homebot. Structure: kvCORE (New Lead) → Homebot (Create Client). Decision: KILL — bypasses FUB system of record. Lead should land in FUB first → FUB→Homebot via native tag (#Seller_Homebot or #Buyer_Homebot), not direct kvCORE→Homebot. Added to kill list (13 total).
+- **`claude-config` git mirror sync gap** ⚠️ NEW 2026-07-23. This repo was found frozen at v3.1.6 (2026-06-11 content) with on-disk mtime 2026-07-09 — despite the README describing a weekly scheduled push. No matching Cowork scheduled task was found via `list_triggers`. Either the "weekly push" runs as a local (non-Cowork) mechanism — e.g. Windows Task Scheduler — or it has silently stopped. **Needs Dr. Jan to confirm what actually drives the weekly push and why it stalled after 2026-06-11.**
 
 ---
 
@@ -319,8 +321,8 @@ Full templates + IDs + merge variables → Notion: https://www.notion.so/312b8be
 - **GBP:** Weekly posts = 35% more views. 100+ photos/location (520% more calls, 1,065% more clicks). Respond to all reviews <24 hrs. 50+ reviews per location goal. 46% of Google searches have local intent. Primary category: Real Estate Agent.
 - **3-5-7 Content Rule:** 3 videos/week · 5 GBP posts/week · 7 social engagements/day.
 - **Meta/Instagram (March 2026):** Original content enforcement — repurposed content = "non-recommendable." DM shares = #1 Reels ranking signal (5–10x reach). 3-sec hold rate >60% → 5–10x more reach. Carousels +12% engagement vs Reels but Reels +1.36x reach. Optimal mix: 3–4 Reels + 2–3 carousels/week. FB ads: 8.78% conversion, $1.88 CPC. Conversions API standard.
-- **Schema — AggregateRating JSON-LD (Apr 2026):** `lib/schema/aggregateRating.ts` helper. Set `NEXT_PUBLIC_GBP_AGGREGATE_RATING_VALUE` + `NEXT_PUBLIC_GBP_AGGREGATE_RATING_COUNT` per-site in Vercel once a GBP hits 5+ reviews → SERP stars light up, zero code change. Apply site-by-site as each of 15 GBP locations accrues reviews.
-- **Sitemap `<lastmod>` (Apr 2026):** Frozen per deploy via `BUILD_DATE_ISO` — eliminates "lastmod inflation" distrust.
+- **Schema — AggregateRating JSON-LD (Apr 2026):** `lib/schema/aggregateRating.ts` helper. Set `NEXT_PUBLIC_GBP_AGGREGATE_RATING_VALUE` + `NEXT_PUBLIC_GBP_AGGREGATE_RATING_COUNT` per-site in Vercel once a GBP hits 5+ reviews → SERP stars light up, zero code change. Apply site-by-site as each of 16 GBP locations accrues reviews.
+- **Sitemap `<​lastmod>` (Apr 2026):** Frozen per deploy via `BUILD_DATE_ISO` — eliminates "lastmod inflation" distrust.
 - **robots.txt (Apr 2026):** Explicit `Allow` for 9 AI crawlers + social previews (anthropic-ai, DuckAssistBot, Meta-ExternalAgent, Amazonbot, Bytespider, Applebot, facebookexternalhit, Twitterbot, LinkedInBot).
 - **Canva MLS Templates (Feb 2026):** Auto-populated — property details, photos, pricing pull from live MLS.
 
@@ -329,8 +331,6 @@ Content production, GBP playbooks, video scripts → `content-brand-authority` s
 ---
 
 ## GBP LOCATIONS — 16 TOTAL
-
-*Count corrected 2026-07-20 (header previously said 15; the three sets below enumerate 5+6+5 = 16). Open Brain logged a separate external-drift finding on 2026-07-15 (live GBP export showed 20) — reconcile the roster below against a fresh GBP export at next review.*
 
 NAP everywhere: Dr. Jan Duffy · BHHS Nevada Properties · 702-222-1964.
 
@@ -365,8 +365,8 @@ NAP everywhere: Dr. Jan Duffy · BHHS Nevada Properties · 702-222-1964.
 
 | Task Type | Model | Rationale |
 |---|---|---|
-| Client emails · GBP posts · FUB templates · quick lookups | **Sonnet 5** (`claude-sonnet-5`) | Fast + cheap default per v2.2. |
-| Listing strategy · investor waterfall · long agentic builds · coding | **Opus 4.8** (`claude-opus-4-8`) | Complex reasoning. Escalate the model, don't max the effort slider. |
+| Client emails · GBP posts · FUB templates · quick lookups | **Sonnet 5** (`claude-sonnet-5`) | Fast + cheap default per v2.2. Confirmed current 2026-07-23. |
+| Listing strategy · investor waterfall · long agentic builds · coding | **Opus 4.8** (`claude-opus-4-8`) | Complex reasoning. Escalate the model, don't max the effort slider. Confirmed current 2026-07-23. |
 | Long-horizon agentic (multi-file audits, SEO migration, CMA from scratch) | **Advisor Tool** (Sonnet + Opus pairing) | See pairing rules in AI Models section / v2.2. |
 | Photo scoring · vision tasks | **Opus 4.8** | Vision work per v2.2. |
 
@@ -406,8 +406,8 @@ Deep-dive high-stakes work (listings, FUB builds, SEO, investor analysis) → in
 ## 2026 CLAUDE / COWORK BEST PRACTICES
 
 - **Skills > Prompts** — Reusable skills are the 2026 standard. **Canonicality rule (unified 2026-07-20):** unprefixed `.claude/skills/` versions are canonical for CONTENT (they hold the newest material); `dr-jan-skills-v2:*` prefixed names are ROUTING ALIASES only. When content differs, unprefixed wins — reconcile the plugin copy on the next skill-creator run. This is the single rule; the Installed Skills Index below states the same.
-- **Lean CLAUDE.md** — Core identity + routing only. Reference material → skills or Notion retrieval. (This v3.0 is that restructure.)
-- **Skill install** — Cowork plugin system (.plugin file). Never drag files into `.claude/skills/` directly (triggers Cursor).
+- **Lean CLAUDE.md** — Core identity + routing only. Reference material → skills or Notion retrieval.
+- **Skill install** — Cowork plugin system (.plugin file). Never drag files into `.claude/skills/` directly (triggers Cursor). **Skill names cannot contain the reserved word "claude"** (confirmed 2026-07-23 — a delivered `.skill` file was rejected for this; renamed to `operating-instructions-editor`).
 - **CRM Safety — "UNKNOWN not inference"** — Never guess contact data. No confirmed source = tag UNKNOWN for manual review.
 - **Human Gate Required** — Agentic automation without human confirmation = CRM data fiction. Confirm before modifying live contacts/deals.
 - **One Job Per Action** — Each browser/MCP action = one specific task with approved values.
@@ -421,7 +421,7 @@ Deep-dive high-stakes work (listings, FUB builds, SEO, investor analysis) → in
 
 *Reference by name — Claude auto-loads the skill's full instructions.*
 
-⚠️ **Canonical versions (unified 2026-07-20, same rule as Best Practices above):** Where a skill exists both as unprefixed (`.claude/skills/`) and plugin-prefixed (`dr-jan-skills-v2:*`), **unprefixed is canonical for content**; the `dr-jan-skills-v2:*` names in the table below are routing aliases (e.g., `dr-jan-duffy-realscout-fub` unprefixed = v2.1 Apr 13 with FUB Automations 2.0 + Smart List Collections; plugin version = v2.0 Apr 6). Reconcile plugin on next skill-creator run.
+⚠️ **Canonical versions (unified 2026-07-20, same rule as Best Practices above):** Where a skill exists both as unprefixed (`.claude/skills/`) and plugin-prefixed (`dr-jan-skills-v2:*`), **unprefixed is canonical for content**; the `dr-jan-skills-v2:*` names in the table below are routing aliases (e.g., `dr-jan-duffy-realscout-fub` unprefixed = v2.1 Apr 13 with FUB Automations 2.0 + Smart List Collections; plugin version = v2.7.0 as of 2026-07-23, Cloze row updated but other content still 2026-07-05-era — reconcile fully on next skill-creator pass).
 
 | Category | Skill | Purpose |
 |---|---|---|
@@ -445,26 +445,23 @@ Deep-dive high-stakes work (listings, FUB builds, SEO, investor analysis) → in
 | Design | `design:*` | Critique, system, handoff, UX copy, research, synthesis, a11y |
 | Ops Bundle | `operations:*` | Runbook, status, risk, process, vendor, change, capacity, compliance |
 | Meta | `init` · `review` · `security-review` | New CLAUDE.md, PR review, security audit |
+| CRM | `cloze:cloze-crm-workflow` | Cloze finds/notes/todos/records — pair with `followupace-fub-mcp`, write FUB first |
+| Sync/Config | `operating-instructions-editor` | Locate + safely edit this CLAUDE.md wherever the live copy actually lives; treats `claude-config` mirror as reference-only |
 
 ---
 
 ## COWORK MCP CAPABILITIES
 
-*Updated 2026-04-29. Confirm account before ANY write on dual-account MCPs (Gmail/FUB/Homebot/CallAction/Cloudflare).*
+*Updated 2026-07-23. Confirm account before ANY write on dual-account MCPs (Gmail/FUB/Homebot/CallAction/Cloudflare).*
 
 ### ✅ Full Access
-Gmail Full (2 accounts: `mcp__19c00846`, `mcp__ed5ee078`) · Gmail Read-Only (`mcp__5e399eca`) · Google Calendar · Google Drive · Notion · Airtable · Vercel · Canva (editing transactions) · Gamma · Calendly · Supabase · Cloudflare Workers/D1/KV/R2 (2 accounts) · Thoughts/Open Brain · Scheduled Tasks · Claude in Chrome · Control Chrome · Follow Up Boss (2 accounts) · Homebot (2 accounts) · CallAction (2 accounts) · **Parallel Search MCP** (`web_search` + `web_fetch`, connected May 8, 2026 — anonymous/free tier, no key required)
+Gmail Full (2 accounts: `mcp__19c00846`, `mcp__ed5ee078`) · Gmail Read-Only (`mcp__5e399eca`) · Google Calendar · Google Drive · Notion · Airtable · Vercel · Canva (editing transactions) · Gamma · Calendly · Supabase · Cloudflare Workers/D1/KV/R2 (2 accounts) · Thoughts/Open Brain · Scheduled Tasks · Claude in Chrome · Control Chrome · Follow Up Boss (2 accounts) · Homebot (2 accounts) · CallAction (2 accounts) · **Parallel Search MCP** (`web_search` + `web_fetch`, connected May 8, 2026 — anonymous/free tier, no key required) · **Cloze** (connected 2026-07-23 — 13 read-only tools auto-allowed; 9 write/delete tools require per-call confirmation per CONFIRM BEFORE LIVE WRITES rule; FUB-synced contacts/tags/timelines verified visible from Cloze side)
 
 ### ⚠️ Limited
 kvCORE (create/update only, no search via MCP — sufficient for enrichment-layer role) · RealScout (create client only) · Figma (design context only, NOT Canva)
 
 ### ❌ Not Connected (manual required)
-BombBomb · CloudCMA · GitHub (manual commit/push) · Zapier (decommission target — May 19) · IDC Global / Burrow (newsletter + neighborhood reports — manual UI) · Asana (migrated to Notion Task Tracker)
-
-### ⚙️ System / Meta
-Session Info · MCP Registry · Plugins · Cowork directory
-
-Full tool inventory + URIs → see the agent's active tools listing (refreshes per session).
+BombBomb · CloudCMA · GitHub (manual commit/push) · Zapier (decommission target — May 19) · IDC Global / Burrow (newsletter + neighborhood reports — manual UI) · Asana (migrated to Notion Task Tracker) · Famewall_Reviews (requires OAuth authorization — not available in non-interactive sessions, authorize via claude.ai connector settings)
 
 ---
 
@@ -485,16 +482,16 @@ Generic stats · pushy language ("you must act now") · stiff client closings ("
 *The most important section. The subtle ways Claude can satisfy your request but miss the point.*
 
 ### Client Emails
-❌ Generic stats not tied to their neighborhood · Zillow/Redfin mentions · >1 question · >80 words · ≥2 CTAs · features over meaning · "I" more than twice
-✅ Specific address + price + insider detail + their situation + one CTA
+❌ Generic stats not tied to their neighborhood · Zillow/Redfin mentions · >1 question · >80 words · ≥2 CTAs · features over meaning · "I" more than twice · inline "(Source, date)" parentheticals in 1:1 client emails/texts (reads as computer-generated — confirmed 2026-07-21)
+✅ Specific address + price + insider detail + their situation + one CTA. Verify every number, then write it conversationally — save inline citations for GBP posts/market reports/internal notes.
 
 ### FUB Automation Templates
 ❌ `{{ }}` / `{ }` merge variables (always `%variable%`) · missing trigger acknowledgment · generic subject lines · >80 words · missing ARCHIVE/Trash/RE Agent exclusion conditions
 ✅ Under 80 words · `%merge%` · specific trigger reference · one CTA · question at end
 
 ### Market Data / CMAs
-❌ Memory-based prices · national/statewide stats · "up/down" without address+date proof · range when they need a number
-✅ Search → specific address + price + date + insider detail
+❌ Memory-based prices · national/statewide stats · "up/down" without address+date proof · range when they need a number · presenting a Parallel result with no visible publish/update date as current
+✅ Search → specific address + price + date + insider detail. Pre-publish citation gate: no date on the source = UNKNOWN-not-inference, re-verify.
 
 ### GBP Posts
 ❌ Generic "market is hot" · not geo-targeted to specific GBP location · missing 702-222-1964 · <80 or >300 words · no CTA
@@ -511,6 +508,10 @@ Generic stats · pushy language ("you must act now") · stiff client closings ("
 ### Burrow Newsletter / Neighborhood Reports
 ❌ Stock generic Las Vegas content · fair housing violations (protected class proxies) · sent to wrong tier (Tier 1 gets personal touch, not bulk newsletter)
 ✅ Specific neighborhood data · NAR fair housing audited · Tier 2 Active Network targeting
+
+### Config / Harness Maintenance
+❌ Treating the `claude-config` git mirror as current without checking its mtime/content date first · editing this file based on a secondhand summary instead of reading it directly · bumping only the header or only the footer version line · silently resolving a version conflict (e.g. GOI v2.2 vs a claimed v4.0) without confirming where the newer doc actually lives
+✅ Read the live file first · bump header + footer together with matching date · back up before overwriting · flag unresolved conflicts explicitly rather than guessing
 
 ---
 
@@ -531,7 +532,7 @@ Sending Gmail · modifying existing FUB contacts · publishing to web/social · 
 
 ### A. Client Email Drafts
 - **MUST:** <80 words · specific trigger reference · one CTA · end with question
-- **MUST NOT:** mention Zillow/estimates · `{{ }}` variables · multiple CTAs
+- **MUST NOT:** mention Zillow/estimates · `{{ }}` variables · multiple CTAs · inline source citations in the visible message body
 - **PREFER:** active voice · name in subject · email+text combo (53% vs 27% response)
 - **ESCALATE:** divorce/probate/legal dispute — confirm framing first
 - **Benchmarks:** Welcome 5–7 emails / 2 wks · Buyer nurture 12–24 / 6–12 mo · Seller nurture 8–12 / 3–6 mo · Post-closing 6–12 / 12 mo · Automation = 3–4x revenue/lead vs manual
@@ -585,9 +586,9 @@ Sending Gmail · modifying existing FUB contacts · publishing to web/social · 
 ## BACKUP & DISASTER RECOVERY
 
 - **Backup retention:** Keep last 3 major versions in `.claude/` (`CLAUDE.md.backup-v{N}-YYYY-MM-DD`). Prune older on each structural restructure.
-- **Git mirror:** Add CLAUDE.md + `.claude/skills/` to a private repo under DrJanDuffy org (e.g., `DrJanDuffy/claude-config`) on next GitHub session. Weekly push.
+- **Git mirror:** Private repo under DrJanDuffy org (`DrJanDuffy/claude-config`, or a local clone as found on Gene Boyle's computer 2026-07-23). ⚠️ Confirmed unreliable 2026-07-23 — found frozen at v3.1.6 (2026-06-11 content), 6 weeks behind live. No Cowork scheduled task found driving the "weekly push." **Needs Dr. Jan to confirm the actual sync mechanism and fix it** — see Open Tech Items.
 - **Platform exit plan:** If Cowork fails — core identity + voice + CTAs + FUB tag reference can paste directly into Claude.ai Projects as system prompt. Skills export as individual markdown files.
 
 ---
 
-*CLAUDE.md v3.2.0 | Updated: 2026-07-20 (Harness Conflict Audit fixes: model routing → Sonnet 5 / Opus 4.8 per Global Operating Instructions v2.2; skill-canonicality rule unified — unprefixed canonical for content, dr-jan-skills-v2:* as routing aliases; GBP header corrected 15 → 16; FUB three-way overlap + loop-engineer survivor added to Installed Skills Index; dr-jan-loop-engineer skill deleted from roster. Overdue items previously pinned to 2026-05-19 — Zapier decommission target, Next.js migration column, ShowingTime→FUB feedback gap, Prospects/FUB duplicate audit — all still need an actual re-review pass, not just this date bump. v3.1.4 2026-05-08: Parallel Search MCP connected) | Next review: 2026-07-25 (weekly harness scan) | Backups on disk: CLAUDE.md.backup-v3.1.4-2026-07-20, CLAUDE.md.backup-v3.1.1-2026-04-29*
+*CLAUDE.md v3.3.0 | Updated: 2026-07-23 (Resynced the stale `claude-config` git mirror — found frozen at v3.1.6/2026-06-11 content, 6 weeks behind — up to the live v3.2.0 baseline, then added: Cloze MCP connection + FUB-sync verification to Tech Stack and MCP Capabilities; GBP schema note count corrected 15→16 to match live GBP Locations section; model currency for Opus 4.8 and Sonnet 5 confirmed via live web search; flagged the open, UNRESOLVED conflict between this file's "Governed by GOI v2.2" line and a separate claim that GOI was retired 2026-07-15 into an unlocated "project CLAUDE.md v4.0" — do not resolve this silently, confirm with Dr. Jan where v4.0 lives; flagged the git-mirror sync mechanism itself as broken/unconfirmed; renamed the companion skill from `claude-md-editor` to `operating-instructions-editor` after "claude" was confirmed a reserved word in skill names; added Config/Harness Maintenance failure-mode row and Installed Skills Index rows for `cloze:cloze-crm-workflow` and `operating-instructions-editor`. Previous: v3.2.0 2026-07-20 resolved 2026-07-18 Harness Conflict Audit findings — model routing → Sonnet 5/Opus 4.8, GBP count 15→16, skill-canonicality rule unified. v3.1.4 2026-05-08: Parallel Search MCP connected) | Next review: 2026-07-30 | Backups on disk (this mirror): CLAUDE.md.backup-v3.1.6-2026-06-11 (this update), CLAUDE.md.backup-v3.1.5-2026-06-11, CLAUDE.md.backup-v3.1.4-2026-06-11*
