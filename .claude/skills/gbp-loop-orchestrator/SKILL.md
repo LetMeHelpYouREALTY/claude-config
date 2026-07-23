@@ -201,4 +201,3 @@ Read the relevant reference file before each step that needs it. Do not load bot
 ## CONTINUOUS IMPROVEMENT
 
 Every run: check natesnewsletter.substack.com/archive for new post titles. If a new GBP or local SEO post appeared since the last batch, apply the relevant guidance and flag it in the output under "Continuous Improvement Notes." If a larger structural change is needed in this skill's logic or steps, document it as a recommendation — do not self-modify this skill file.
-                                                                                                                                                                                                                                             
