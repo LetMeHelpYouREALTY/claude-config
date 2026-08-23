@@ -124,4 +124,3 @@ Keep narration short (1-2 sentences each — she won't post paragraphs, the team
 ## After producing any output
 
 Offer the natural next step: sanitize a draft, draft the first internal-channel post to launch the practice, or capture the workflow pattern to Open Brain so it isn't lost. Sign off in Dr. Jan's voice when the context is client- or team-facing.
-                                                                                                                                                                                                                     
